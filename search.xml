@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Windows終端機美化</title>
+    <url>/blog/2021/09/09/%E6%B8%AC%E8%A9%A6/</url>
+    <content><![CDATA[<h1 id="Windows終端機美化"><a href="#Windows終端機美化" class="headerlink" title="Windows終端機美化"></a>Windows終端機美化</h1><h2 id="Windows-Terminal-安裝"><a href="#Windows-Terminal-安裝" class="headerlink" title="Windows Terminal 安裝"></a>Windows Terminal 安裝</h2><p>打開 Microsoft store<br>搜尋 <code>terminal</code></p>
+<p><img src="https://i.imgur.com/l92sQP9.jpg"></p>
+<p>接著就直接安裝就可以了</p>
+<h2 id="Oh-My-Posh-安裝"><a href="#Oh-My-Posh-安裝" class="headerlink" title="Oh My Posh 安裝"></a>Oh My Posh 安裝</h2><p>打開 <code>PowerShell</code> 依序輸入兩行指令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Install-Module posh-git -Scope CurrentUser</span><br><span class="line"></span><br><span class="line">Install-Module oh-my-posh -Scope CurrentUser</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>問題全選 <code>是</code></p>
+</blockquote>
+<p>接著設定自動套用，在 PowerShell 上輸入 $PROFILE ，依序輸入下列兩行指令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if (!(Test-Path -Path $PROFILE )) &#123; New-Item -Type File -Path $PROFILE -Force&#125;</span><br><span class="line">notepad $PROFILE</span><br></pre></td></tr></table></figure>
+<p>接著再打開的記事本裡貼上</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Import-Module posh-git</span><br><span class="line">Import-Module oh-my-posh</span><br><span class="line">Set-PoshPrompt Paradox</span><br></pre></td></tr></table></figure>
+<p>儲存後就完成了</p>
+<p>若出現下圖錯誤</p>
+<p><img src="https://i.imgur.com/Xq93rQ0.png"></p>
+<p>則輸入</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nerd-Font-字形安裝"><a href="#Nerd-Font-字形安裝" class="headerlink" title="Nerd Font 字形安裝"></a>Nerd Font 字形安裝</h2><p>Oh My Posh 這個套件是設計成要用 <a href="https://www.nerdfonts.com/"><code>Nerd Font</code></a> 的<br>而且 <a href="https://www.nerdfonts.com/"><code>Nerd Font</code></a> 也是以包含許多icon聞名<br>這邊我們用作者推薦的 <a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip"><code>Meslo LGM NF</code></a><br>下載並安裝完字體後<br>回到 Windows終端機 點開設定</p>
+<p><img src="https://i.imgur.com/ypV2Wh2.png"></p>
+<p>點開json檔案</p>
+<p><img src="https://i.imgur.com/rbRMVkr.png"></p>
+<p>把 <code>fontFace</code> 修改成要的字體名稱</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;profiles&quot;</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;defaults&quot;</span>:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;fontFace&quot;</span>: <span class="string">&quot;MesloLGM Nerd Font&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="主題更改"><a href="#主題更改" class="headerlink" title="主題更改"></a>主題更改</h2><p><a href="https://terminalsplash.com/">https://terminalsplash.com/</a><br>這裡面有很多顏色主題主題可以選擇<br>更改的方式也是要到json檔案裡面改<br>這邊我就不多做說明了</p>
+<h2 id="Oh-My-Posh主題更改"><a href="#Oh-My-Posh主題更改" class="headerlink" title="Oh My Posh主題更改"></a>Oh My Posh主題更改</h2><p>利用下列指令查看所有主題</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Get-PoshThemes</span><br></pre></td></tr></table></figure>
+<p>接著輸入下列指令去更改</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Set-PoshPrompt -Theme &lt;主題名稱&gt;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>學習</category>
+      </categories>
+      <tags>
+        <tag>教學</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+</search>
