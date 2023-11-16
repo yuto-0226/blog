@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>作品 on Yuto's notes</title><link>https://example.org/categories/%E4%BD%9C%E5%93%81/</link><description>Recent content in 作品 on Yuto's notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>2023 © [Yuto](https://joeroe.io)</copyright><lastBuildDate>Wed, 18 Aug 2021 19:13:26 +0000</lastBuildDate><atom:link href="https://example.org/categories/%E4%BD%9C%E5%93%81/index.xml" rel="self" type="application/rss+xml"/><item><title>POPCAT 自動連點器</title><link>https://example.org/posts/project/popcat/</link><pubDate>Wed, 18 Aug 2021 19:13:26 +0000</pubDate><guid>https://example.org/posts/project/popcat/</guid><description>前言 近期Pop cat風靡全球 大家都想拿到第一名 什麼是Pop cat? 這就要從一隻可愛的貓說起
+Popcat風潮來自推特上一段爆紅的貓咪影片 這隻名為Oatmeal的貓咪正在向主人Xavier撒嬌 嘴巴一開一合的 樣子非常可愛 Xavier也把Oatmeal的圖片做成gif圖 後來被他的朋友PO到Reddit論壇上 突然爆紅 被歐美網友們做成各式各樣的迷因（meme） 搭配上「POP」的音效 -數位時代。檢自https://www.bnext.com.tw/article/64440/popcat-click-competition-janis (2021/08/19)
+我那時就想 一直點一直點手很酸 國外也有人用連點器 (物理) 那為什麼我不來試看看用程式寫 然後又剛好看到 Youtube 上的 Selenium 教學 剛好可以讓我寫出連點器 於是便著手編寫了
+Selenium Selenium 是一個綜合性的項目，為web瀏覽器的自動化提供了各種工具和依賴包
+要在 Python 中使用 Selenium 要先安裝它的套件
+$ pip install selenium 然後要安裝對應的 WebDriver 才能讓它在瀏覽器上面跑 這邊就用 Chrome (網址) 記得要挑對版本下載 下載完後把他丟到程式檔案的同一個資料夾就可以了
+程式碼 Github: 連結
+from selenium import webdriver import time import random PATH = &amp;#34;./chromedriver.exe&amp;#34; driver = webdriver.Chrome(PATH) driver.get(&amp;#34;https://popcat.click/&amp;#34;) neko = driver.</description></item></channel></rss>

@@ -1,0 +1,60 @@
+<!doctype html><html lang=en><head><title>Yuto's notes</title><meta name=description content="資工系的學生"><meta name=viewport content="width=device-width,initial-scale=1"><meta charset=utf-8><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin=anonymous><link rel=stylesheet href=https://example.org/css/palettes/base16-dark.css><link rel=stylesheet href=https://example.org/css/risotto.css><link rel=stylesheet href=https://example.org/css/custom.css></head><body><div class=page><header class=page__header><nav class="page__nav main-nav"><ul><h1 class=page__logo><a href=https://example.org/ class=page__logo-inner>Yuto's notes</a></h1><li class=main-nav__item><a class=nav-main-item href=https://example.org/pages/about/ title="About Me">About</a></li><li class=main-nav__item><a class=nav-main-item href=https://example.org/categories/ title=Categories>Categories</a></li><li class=main-nav__item><a class="nav-main-item active" href=https://example.org/posts/ title=Posts>Posts</a></li><li class=main-nav__item><a class=nav-main-item href=https://example.org/ title>Products</a></li><li class=main-nav__item><a class=nav-main-item href=https://example.org/tags/ title=Tags>Tags</a></li></ul></nav></header><section class=page__body><header class=content__header><h1></h1></header><div class=content__body><h1 id=題目>題目</h1><p>2019TOI1214 新手同好會 5. 卷積神經網路 (CNN) {<a href=https://toi-reg.csie.ntnu.edu.tw/wp-content/uploads/question/201912-onsite/5-CNN.pdf>試題連結</a>}</p><h2 id=問題敘述>問題敘述</h2><p>卷積神經網絡 (Convolutional Neural Network) 簡稱 CNN，是現在最火紅的深度學習課程必教的模型。
+CNN 在影像識別方面非常厲害，許多影像辨識的模型都是以 CNN 的架構為基礎去做延伸。
+CNN 分為三個部分：卷積層 (convolution layer)、池化層 (pooling layer) 和全連接層 (fully connected layer)。
+卷積層用於提取影像特徵，池化層減小資料的空間大小，全連接層主要目的為實現分類。
+池化層最常見的作法是最大池化法 (max pooling)，它將輸入的影像劃分為若干個 2×2 的矩形子區域，對每個子區域輸出最大值。
+給定一個 n×n 的二維陣列，請實作最大池化演算法並輸出池化後的結果。</p><p><img src="https://zerojudge.tw/ShowImage?id=1442" alt>
+<strong>最大池化法示意圖</strong>
+圖片來源：https://embarc.org/embarc_mli/doc/build/html/MLI_kernels/pooling_max.html</p><h2 id=輸入格式>輸入格式</h2><p>第一行有一個正整數n（4 &lt;= n &lt;= 20，n為2的倍數），代表輸入影像邊長。接下去有n行，每行各有n個數字，數值範圍在正負 2^31 之間，以空白隔開，代表影像陣列中的資料值。</p><h2 id=輸出格式>輸出格式</h2><p>輸出經2x2 最大池化後的結果。</p><h2 id=範例測資>範例測資</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>輸入1 :
+</span></span><span style=display:flex><span>4
+</span></span><span style=display:flex><span>12 20 30 0
+</span></span><span style=display:flex><span>8 12 2 0
+</span></span><span style=display:flex><span>34 70 37 4
+</span></span><span style=display:flex><span>112 100 25 12
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>輸出1 :
+</span></span><span style=display:flex><span>20 30
+</span></span><span style=display:flex><span>112 37
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>輸入2 :
+</span></span><span style=display:flex><span>6 
+</span></span><span style=display:flex><span>10 2 0 12 1 3
+</span></span><span style=display:flex><span>21 0 13 2 2 0
+</span></span><span style=display:flex><span>0 0 0 10 0 0
+</span></span><span style=display:flex><span>19 2 0 13 61 1
+</span></span><span style=display:flex><span>0 1 32 3 0 2
+</span></span><span style=display:flex><span>9 2 0 31 11 0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>輸出2 :
+</span></span><span style=display:flex><span>21 13 3
+</span></span><span style=display:flex><span>19 13 61
+</span></span><span style=display:flex><span>9 38 11
+</span></span></code></pre></div><h1 id=解題方向>解題方向</h1><p>簡化題目後，我們可以得出題目是要我們把一個大矩陣都拆成2*2的小矩陣。然後把每個小矩陣的最大值輸出成一個新的矩陣，而這個過程被稱作池化。了解題目的要求後就簡單了，我的作法是以一個小區塊先池化，輸出後再處理下一個小區塊。</p><p><img src=https://i.imgur.com/YCcYikU.png alt></p><p>如下圖所示，而實際的方法可以把輸入的影像邊常除2，再丟進迴圈裡跑。這樣迴圈每跑次就是處理一組小矩陣。
+比較要注意的是後續處理比較四格大小的時候，要記得把迴圈索引值乘2。</p><p><img src=https://i.imgur.com/zXaq4ZH.png alt></p><h1 id=參考程式碼>參考程式碼</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> n;
+</span></span><span style=display:flex><span>    cin<span style=color:#f92672>&gt;&gt;</span>n;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> pool[n][n];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>n;i<span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>n;j<span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>            cin<span style=color:#f92672>&gt;&gt;</span>pool[i][j];
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> max;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>n<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>n<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;j<span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>            max<span style=color:#f92672>=</span>pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j];
+</span></span><span style=display:flex><span>            max<span style=color:#f92672>=</span>(pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j]<span style=color:#f92672>&gt;</span>max)<span style=color:#f92672>?</span>pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j]<span style=color:#f92672>:</span>max;
+</span></span><span style=display:flex><span>            max<span style=color:#f92672>=</span>(pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&gt;</span>max)<span style=color:#f92672>?</span>pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>:</span>max;
+</span></span><span style=display:flex><span>            max<span style=color:#f92672>=</span>(pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&gt;</span>max)<span style=color:#f92672>?</span>pool[<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>:</span>max;
+</span></span><span style=display:flex><span>            cout<span style=color:#f92672>&lt;&lt;</span>max<span style=color:#f92672>&lt;&lt;</span><span style=color:#e6db74>&#34; &#34;</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        cout<span style=color:#f92672>&lt;&lt;</span>endl;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><footer class=content__footer></footer></section><section class=page__aside><div class=aside__about><div class=aside__about><img class=about__logo src=https://example.org/images/rice.svg alt=Logo><h1 class=about__title>Yuto</h1><p class=about__description>資工系的學生</p></div><ul class=aside__social-links><li><a href=https://github.com/yuto-0226 rel=me aria-label=GitHub title=GitHub><i class="fa-brands fa-github" aria-hidden=true></i></a>&nbsp;</li><li><a href=mailto:wayne71112@gmail.com rel=me aria-label=Email title=Email><i class="fa-solid fa-envelope" aria-hidden=true></i></a>&nbsp;</li></ul></div><hr><div class=aside__content></div></section><footer class=page__footer><p></p><br><br><p class=copyright>2023 © <a href=https://joeroe.io>Yuto</a></p><p class=advertisement>Powered by <a href=https://gohugo.io/>hugo</a> and <a href=https://github.com/joeroe/risotto>risotto</a>.</p></footer></div></body></html>

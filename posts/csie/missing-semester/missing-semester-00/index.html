@@ -1,0 +1,154 @@
+<!doctype html><html lang=en><head><title>Before the Course &ndash; Yuto's notes</title><meta name=description content="資工系的學生"><meta name=viewport content="width=device-width,initial-scale=1"><meta charset=utf-8><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.1/css/academicons.min.css integrity="sha512-b1ASx0WHgVFL5ZQhTgiPWX+68KjS38Jk87jg7pe+qC7q9YkEtFq0z7xCglv7qGIs/68d3mAp+StfC8WKC5SSAg==" crossorigin=anonymous><link rel=stylesheet href=https://example.org/css/palettes/base16-dark.css><link rel=stylesheet href=https://example.org/css/risotto.css><link rel=stylesheet href=https://example.org/css/custom.css></head><body><div class=page><header class=page__header><nav class="page__nav main-nav"><ul><h1 class=page__logo><a href=https://example.org/ class=page__logo-inner>Yuto's notes</a></h1><li class=main-nav__item><a class=nav-main-item href=https://example.org/pages/about/ title="About Me">About</a></li><li class=main-nav__item><a class=nav-main-item href=https://example.org/categories/ title=Categories>Categories</a></li><li class=main-nav__item><a class="nav-main-item active" href=https://example.org/posts/ title=Posts>Posts</a></li><li class=main-nav__item><a class=nav-main-item href=https://example.org/ title>Products</a></li><li class=main-nav__item><a class=nav-main-item href=https://example.org/tags/ title=Tags>Tags</a></li></ul></nav></header><section class=page__body><header class=content__header><h1>Before the Course</h1></header><div class=content__body><p>課程裡面所使用的環境都是類UNIX系統。如果你是Windows系統的話就要用WSL來模擬LINUX的環境，而且可能會有很多東西跟教授所講的不太一樣。接下來會用Windows 11操作。</p><p>:::warning
+Windows 10 版本必須是 2004 (19041.450) 以上
+:::</p><h1 id=windows-terminal>Windows Terminal</h1><p>一個可以讓你Terminal漂漂亮亮的東西
+<a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=zh-tw&gl=tw">Microsoft Store的連結</a></p><h1 id=windows-功能>Windows 功能</h1><p>直接去搜尋打上<code>Windows 功能</code>並點開
+<img src=https://i.imgur.com/06yRB0p.png alt></p><p>把裡面的<code>Windows 子系統 Linux 版</code>跟<code>虛擬機平台</code>勾起來
+<img src=https://i.imgur.com/wvDuRaG.png alt></p><p>開啟WindowsTerminal(Power Shell或命令提示字元都可以)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wsl --install
+</span></span><span style=display:flex><span>著作權 <span style=color:#f92672>(</span>c<span style=color:#f92672>)</span> Microsoft Corporation。保留擁有權利。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>使用方式: wsl.exe <span style=color:#f92672>[</span>Argument<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>Options...<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>CommandLine<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>用於執行 Linux 二進位檔的引數:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    如果未提供任何命令列，wsl.exe 會啟動預設的殼層。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --exec, -e &lt;CommandLine&gt;
+</span></span><span style=display:flex><span>        執行指定的命令，但不使用預設的 Linux 殼層。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --
+</span></span><span style=display:flex><span>        依原樣傳遞剩餘的命令列。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>選項:
+</span></span><span style=display:flex><span>    --cd &lt;Directory&gt;
+</span></span><span style=display:flex><span>        將指定的目錄設定為目前的工作目錄。
+</span></span><span style=display:flex><span>        如果使用 ~，將會使用 Linux 使用者的主目錄路徑。如果該路徑的開頭
+</span></span><span style=display:flex><span>        為 / 字元，將會解譯為絕對 Linux 路徑。
+</span></span><span style=display:flex><span>        否則，該值必須是絕對 Windows 路徑。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --distribution, -d &lt;Distro&gt;
+</span></span><span style=display:flex><span>        執行指定的發佈。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --user, -u &lt;UserName&gt;
+</span></span><span style=display:flex><span>        以指定使用者的身分執行。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --system
+</span></span><span style=display:flex><span>        啟動系統發佈的殼層。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>用於管理 Windows 子系統 Linux 版的引數:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --help
+</span></span><span style=display:flex><span>        顯示使用資訊。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --install <span style=color:#f92672>[</span>Options<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        安裝其他 Windows 子系統 Linux 版發佈。
+</span></span><span style=display:flex><span>        如需有效發佈的清單，請使用 <span style=color:#e6db74>&#39;wsl --list --online&#39;</span>。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        選項:
+</span></span><span style=display:flex><span>            --distribution, -d <span style=color:#f92672>[</span>Argument<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>                依名稱下載並安裝發佈。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                引數:
+</span></span><span style=display:flex><span>                    有效發佈名稱 <span style=color:#f92672>(</span>不區分大小寫<span style=color:#f92672>)</span>。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                範例:
+</span></span><span style=display:flex><span>                    wsl --install -d Ubuntu
+</span></span><span style=display:flex><span>                    wsl --install --distribution Debian
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --set-default-version &lt;Version&gt;
+</span></span><span style=display:flex><span>        針對新發佈變更預設安裝版本。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --shutdown
+</span></span><span style=display:flex><span>        立即終止所有執行中的發佈和 WSL <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        輕量公用程式虛擬機器。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --status
+</span></span><span style=display:flex><span>        顯示 Windows 子系統 Linux 版狀態。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --update <span style=color:#f92672>[</span>Options<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        如果未指定選項，則會更新 WSL <span style=color:#ae81ff>2</span> 核心
+</span></span><span style=display:flex><span>        至最新版本。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        選項:
+</span></span><span style=display:flex><span>            --rollback
+</span></span><span style=display:flex><span>                還原至舊版 WSL <span style=color:#ae81ff>2</span> 核心。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>在 Windows 子系統 Linux 版中用於管理發佈的引數:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --export &lt;Distro&gt; &lt;FileName&gt;
+</span></span><span style=display:flex><span>        將發佈匯出為 tar 檔案。
+</span></span><span style=display:flex><span>        檔案名稱可以是 - 以用於標準輸出。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --import &lt;Distro&gt; &lt;InstallLocation&gt; &lt;FileName&gt; <span style=color:#f92672>[</span>Options<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        匯入指定的 tar 檔案作為新發佈。
+</span></span><span style=display:flex><span>        檔案名稱可以是 - 以用於標準輸入。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        選項:
+</span></span><span style=display:flex><span>            --version &lt;Version&gt;
+</span></span><span style=display:flex><span>                指定要用於新發佈的版本。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --list, -l <span style=color:#f92672>[</span>Options<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        列出發佈。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        選項:
+</span></span><span style=display:flex><span>            --all
+</span></span><span style=display:flex><span>                列出全部發佈，包含
+</span></span><span style=display:flex><span>                正在安裝或解除安裝的發佈。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --running
+</span></span><span style=display:flex><span>                只列出目前正在執行的發佈。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --quiet, -q
+</span></span><span style=display:flex><span>                只顯示發佈名稱。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --verbose, -v
+</span></span><span style=display:flex><span>                顯示所有發佈的詳細資訊。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --online, -o
+</span></span><span style=display:flex><span>                顯示可用發佈的清單，以使用 <span style=color:#e6db74>&#39;wsl --install&#39;</span> 安裝。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --set-default, -s &lt;Distro&gt;
+</span></span><span style=display:flex><span>        將發佈設定為預設值。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --set-version &lt;Distro&gt; &lt;Version&gt;
+</span></span><span style=display:flex><span>        變更所指定發佈的版本。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --terminate, -t &lt;Distro&gt;
+</span></span><span style=display:flex><span>        終止指定的發佈。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --unregister &lt;Distro&gt;
+</span></span><span style=display:flex><span>        取消登錄發佈並刪除根檔案系統。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --mount &lt;Disk&gt;
+</span></span><span style=display:flex><span>        在所有 WSL2 發佈中連結並裝載實體磁碟。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        選項:
+</span></span><span style=display:flex><span>            --bare
+</span></span><span style=display:flex><span>                將磁碟連結到 WSL2，但不要裝載磁碟。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --type &lt;Type&gt;
+</span></span><span style=display:flex><span>                裝載磁碟時要使用的檔案系統，若未指定，預設為 ext4。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --options &lt;Options&gt;
+</span></span><span style=display:flex><span>                其他裝載選項。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            --partition &lt;Index&gt;
+</span></span><span style=display:flex><span>                要裝載之磁碟分割的索引，若未指定，預設為整個磁碟。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    --unmount <span style=color:#f92672>[</span>Disk<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>        從所有 WSL2 發佈卸載並中斷連結磁碟。
+</span></span><span style=display:flex><span>        若在沒有引數的情況下呼叫，即卸載並中斷連結所有磁碟。
+</span></span></code></pre></div><p>可以用參數<code>-l -o</code>把所有發行版都印出來</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wsl -l -o
+</span></span><span style=display:flex><span>以下是可安裝之有效發佈的清單。
+</span></span><span style=display:flex><span>使用 <span style=color:#e6db74>&#39;wsl --install -d &lt;Distro&gt;&#39;</span> 安裝。
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>NAME            FRIENDLY NAME
+</span></span><span style=display:flex><span>Ubuntu          Ubuntu
+</span></span><span style=display:flex><span>Debian          Debian GNU/Linux
+</span></span><span style=display:flex><span>kali-linux      Kali Linux Rolling
+</span></span><span style=display:flex><span>openSUSE-42     openSUSE Leap <span style=color:#ae81ff>42</span>
+</span></span><span style=display:flex><span>SLES-12         SUSE Linux Enterprise Server v12
+</span></span><span style=display:flex><span>Ubuntu-16.04    Ubuntu 16.04 LTS
+</span></span><span style=display:flex><span>Ubuntu-18.04    Ubuntu 18.04 LTS
+</span></span><span style=display:flex><span>Ubuntu-20.04    Ubuntu 20.04 LTS
+</span></span></code></pre></div><p>挑自己喜歡的版本按照上面給的提示安裝，以Ubuntu為例:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wsl --install -d Ubuntu
+</span></span></code></pre></div></div><footer class=content__footer></footer></section><section class=page__aside><div class=aside__about><div class=aside__about><img class=about__logo src=https://example.org/images/rice.svg alt=Logo><h1 class=about__title>Yuto</h1><p class=about__description>資工系的學生</p></div><ul class=aside__social-links><li><a href=https://github.com/yuto-0226 rel=me aria-label=GitHub title=GitHub><i class="fa-brands fa-github" aria-hidden=true></i></a>&nbsp;</li><li><a href=mailto:wayne71112@gmail.com rel=me aria-label=Email title=Email><i class="fa-solid fa-envelope" aria-hidden=true></i></a>&nbsp;</li></ul></div><hr><div class=aside__content><p>2022-09-26</p></div></section><footer class=page__footer><p></p><br><br><p class=copyright>2023 © <a href=https://joeroe.io>Yuto</a></p><p class=advertisement>Powered by <a href=https://gohugo.io/>hugo</a> and <a href=https://github.com/joeroe/risotto>risotto</a>.</p></footer></div></body></html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>組合語言 on Yuto's notes</title><link>https://example.org/tags/%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80/</link><description>Recent content in 組合語言 on Yuto's notes</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>2023 © [Yuto](https://joeroe.io)</copyright><lastBuildDate>Mon, 10 Oct 2022 22:09:59 +0000</lastBuildDate><atom:link href="https://example.org/tags/%E7%B5%84%E5%90%88%E8%AA%9E%E8%A8%80/index.xml" rel="self" type="application/rss+xml"/><item><title>組合語言開發環境設定</title><link>https://example.org/posts/csie/asm-dev-seting/</link><pubDate>Mon, 10 Oct 2022 22:09:59 +0000</pubDate><guid>https://example.org/posts/csie/asm-dev-seting/</guid><description>之前曾經嘗試在Windows上學寫組合語言，得到的回饋只有滿滿的問號。編譯過程出現了很多跟在Linux上不同的例外，這更證明了學習程式語言不難，難的是設定開發環境。 山不轉路轉路不轉人轉，我們直接用WSL上的環境去開發，就可以直接省去很多只會阻饒你學習的問題。而關於Windows Terminal和WSL的安裝可以參考Before the Course
+編譯工具 回歸正題，編譯組合語言會需要兩個程式: nasm、ld。nasm是用來把.asm檔轉成.o檔，而ld則是再把.o轉成可以執行的檔案。
+更新 apt 安裝套件前要把apt更新上去，不然有機會會找不到東西安裝冏事發生(本人我還真的卡了一下)
+sudo apt-get update sudo apt upgrade nasm 其實安裝NASM很簡單，直接用Ubuntu內建的套件管理包安裝就行了。
+sudo apt install nasm ld ld的話在GCC裡面有內建，所以如果要裝的話要裝GCC，也就是編譯C/C++的工具。
+sudo apt install nasm</description></item></channel></rss>
